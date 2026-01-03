@@ -6,7 +6,7 @@ A modern, interactive portfolio website featuring an AI-powered chatbot that rep
 ## Usage
 
 visit the website:
-[vriksha-rakshak](https://venugopala08-protfoliovenu.vercel.app/)
+[My Portfolio](https://venugopala08-protfoliovenu.vercel.app/)
 
 
 ## 🚀 Features
