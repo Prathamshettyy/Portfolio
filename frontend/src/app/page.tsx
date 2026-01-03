@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 
 // ✅ Safe for SSR
 import Hero from "@/components/Hero";
@@ -8,12 +7,7 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
-
-// ❗ Likely uses browser APIs (video, window, observers)
-const VideoIntro = dynamic(
-  () => import("@/components/VideoIntro"),
-  { ssr: false }
-);
+import VideoIntro from "@/components/VideoIntro";
 
 export const metadata: Metadata = {
   title: "Home | Interactive Portfolio",
