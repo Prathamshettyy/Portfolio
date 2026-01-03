@@ -11,9 +11,23 @@ const app = express();
 
 // Enable CORS
 const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
+const allowedOrigins = [corsOrigin, 'http://localhost:3000', 'https://protfolio-venu.vercel.app'];
+
 app.use(
   cors({
-    origin: corsOrigin,
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.includes(origin) || allowedOrigins.includes(origin.replace(/\/$/, ""))) {
+        callback(null, true);
+      } else {
+        // For development convenience, you might want to log this
+        console.log('Blocked CORS origin:', origin);
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
   })
 );
 

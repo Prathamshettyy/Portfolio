@@ -38,6 +38,7 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 
 export default function Contact() {
   const [profile, setProfile] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPortfolio = async () => {
@@ -45,16 +46,38 @@ export default function Contact() {
         const data = await getPortfolio();
         if (data && data.data && data.data.profile) {
           setProfile(data.data.profile);
+        } else {
+            setError("No profile data found");
         }
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error fetching portfolio:', err);
+        setError(err.message || "Failed to fetch portfolio");
       }
     };
 
     fetchPortfolio();
   }, []);
 
-  if (!profile) return null;
+  if (error) {
+    return (
+        <section id="contact" className="py-20 relative overflow-hidden">
+             <div className="container-padding relative z-10 text-center">
+                 <p className="text-red-500">Error loading contact info: {error}</p>
+                 <p className="text-sm text-gray-500 mt-2">The backend might be waking up (Render cold start). Please refresh in a minute.</p>
+             </div>
+         </section>
+    )
+  }
+
+  if (!profile) {
+    return (
+        <section id="contact" className="py-20 relative overflow-hidden">
+            <div className="container-padding relative z-10 text-center">
+                <p>Loading contact info...</p>
+            </div>
+        </section>
+    );
+  }
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
