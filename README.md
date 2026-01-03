@@ -6,7 +6,7 @@ A modern, interactive portfolio website featuring an AI-powered chatbot that rep
 ## Usage
 
 visit the website:
-[My Portfolio](https://venugopala08-protfoliovenu.vercel.app/)
+[My Portfolio](https://protfolio-venu.vercel.app/)
 
 
 ## 🚀 Features
@@ -62,7 +62,7 @@ interactive-portfolio/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/interactive-portfolio.git
+   git clone https://github.com/venugopala08/Portfolio.git
    cd interactive-portfolio
    ```
 
