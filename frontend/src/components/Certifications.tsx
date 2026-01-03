@@ -1,35 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AcademicCapIcon } from '@heroicons/react/24/outline';
 
-import { getCertifications } from '../../services/api';
+import certificationsData from '../data/certifications.json';
 import type { Certification } from '../../types';
 
 export default function Certifications() {
-  const [certifications, setCertifications] = useState<Certification[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchCertifications = async () => {
-      try {
-        const data = await getCertifications();
-        setCertifications(data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load certifications.');
-        setLoading(false);
-        console.error('Error fetching certifications:', err);
-      }
-    };
-
-    fetchCertifications();
-  }, []);
-
-  if (loading) return null;
-  if (error) return null;
+  const certifications = certificationsData as Certification[];
 
   return (
     <section id="certifications" className="py-20 bg-gray-50 dark:bg-gray-800">

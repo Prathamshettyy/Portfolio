@@ -1,32 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CodeBracketIcon, EyeIcon } from '@heroicons/react/24/outline';
 
-import { getProjects } from '../../services/api';
+import projectsData from '../data/projects.json';
 import type { Project } from '../../types';
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const data = await getProjects();
-        setProjects(data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load projects. Please try again later.');
-        setLoading(false);
-        console.error('Error fetching projects:', err);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+  const projects = projectsData as Project[];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -46,40 +27,6 @@ export default function Projects() {
       transition: { duration: 0.5 },
     },
   };
-
-  if (loading) {
-    return (
-      <section id="projects" className="py-20">
-        <div className="container-padding">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            My <span className="text-gradient">Projects</span>
-          </h2>
-          <div className="flex justify-center">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 bg-accent rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-              <div className="w-3 h-3 bg-accent rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-              <div className="w-3 h-3 bg-accent rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section id="projects" className="py-20">
-        <div className="container-padding">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            My <span className="text-gradient">Projects</span>
-          </h2>
-          <div className="text-center text-red-500 bg-red-50 dark:bg-red-900/20 p-4 rounded-lg inline-block mx-auto">
-            {error}
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="projects" className="py-20 bg-gray-50/50 dark:bg-gray-800/50">
