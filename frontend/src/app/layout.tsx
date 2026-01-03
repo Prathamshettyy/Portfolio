@@ -10,11 +10,11 @@ import ChatBubble from '@/components/Chatbot/ChatBubble';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Interactive Portfolio | Full-Stack & AI Developer',
+  title: 'Venugopala',
   description: 'A modern portfolio showcasing my projects, skills, and experience as a Full-Stack and AI Developer.',
   keywords: ['portfolio', 'developer', 'full-stack', 'AI', 'next.js', 'react', 'typescript'],
-  authors: [{ name: 'Your Name' }],
-  creator: 'Your Name',
+  authors: [{ name: 'Venugopala' }],
+  creator: 'Venugopala',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },

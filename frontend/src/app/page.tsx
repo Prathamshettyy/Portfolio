@@ -10,7 +10,7 @@ import Contact from "@/components/Contact";
 import VideoIntro from "@/components/VideoIntro";
 
 export const metadata: Metadata = {
-  title: "Home | Interactive Portfolio",
+  title: "Venugopala's portfolio",
   description:
     "Welcome to my interactive portfolio showcasing my work as a Full-Stack and AI Developer.",
 };
