@@ -2,6 +2,13 @@
 
 A modern, interactive portfolio website featuring an AI-powered chatbot that represents the portfolio owner. Built with Next.js, TypeScript, Tailwind CSS, and Node.js.
 
+
+## Usage
+
+visit the website:
+[vriksha-rakshak](https://venugopala08-protfoliovenu.vercel.app/)
+
+
 ## 🚀 Features
 
 - **Modern UI/UX** with smooth animations using Framer Motion
