@@ -104,65 +104,57 @@ export default function Contact() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {profile.email && (
-              <motion.a
-                href={`mailto:${profile.email}`}
-                whileHover={{ y: -5 }}
-                className="glass-card flex items-center p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="p-4 bg-accent/10 rounded-full mr-5 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                  <EnvelopeIcon className="h-7 w-7 text-accent group-hover:text-white transition-colors duration-300" />
-                </div>
-                <div className="text-left">
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-1">Email</p>
-                  <span className="text-lg font-bold text-gray-900 dark:text-gray-100 break-all">{profile.email}</span>
-                </div>
-              </motion.a>
-            )}
+            <motion.a
+              href={`mailto:${profile.email}`}
+              whileHover={{ y: -5 }}
+              className="glass-card flex items-center p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="p-4 bg-accent/10 rounded-full mr-5 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <EnvelopeIcon className="h-7 w-7 text-accent group-hover:text-white transition-colors duration-300" />
+              </div>
+              <div className="text-left">
+                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-1">Email</p>
+                <span className="text-lg font-bold text-gray-900 dark:text-gray-100 break-all">{profile.email}</span>
+              </div>
+            </motion.a>
 
-            {profile.phone && (
-              <motion.a
-                href={`tel:${profile.phone}`}
-                whileHover={{ y: -5 }}
-                className="glass-card flex items-center p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="p-4 bg-accent/10 rounded-full mr-5 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                  <PhoneIcon className="h-7 w-7 text-accent group-hover:text-white transition-colors duration-300" />
-                </div>
-                <div className="text-left">
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-1">Phone</p>
-                  <span className="text-lg font-bold text-gray-900 dark:text-gray-100">{profile.phone}</span>
-                </div>
-              </motion.a>
-            )}
+            <motion.a
+              href={`tel:${profile.phone}`}
+              whileHover={{ y: -5 }}
+              className="glass-card flex items-center p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="p-4 bg-accent/10 rounded-full mr-5 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <PhoneIcon className="h-7 w-7 text-accent group-hover:text-white transition-colors duration-300" />
+              </div>
+              <div className="text-left">
+                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-1">Phone</p>
+                <span className="text-lg font-bold text-gray-900 dark:text-gray-100 break-all">{profile.phone}</span>
+              </div>
+            </motion.a>
           </div>
 
-          <div className="flex justify-center space-x-10">
-            {profile.links?.github && (
-              <motion.a
-                href={profile.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="text-gray-600 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors"
-              >
-                <GitHubIcon className="h-10 w-10" />
-                <span className="sr-only">GitHub</span>
-              </motion.a>
-            )}
-            
-            {profile.links?.linkedin && (
-              <motion.a
-                href={profile.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, rotate: -5 }}
-                className="text-gray-600 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors"
-              >
-                <LinkedInIcon className="h-10 w-10" />
-                <span className="sr-only">LinkedIn</span>
-              </motion.a>
-            )}
+          <div className="flex justify-center gap-6">
+            <motion.a
+              href={profile.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              className="p-4 glass-card rounded-full hover:bg-accent hover:text-white transition-all duration-300 shadow-sm"
+              aria-label="GitHub"
+            >
+              <GitHubIcon className="h-8 w-8" />
+            </motion.a>
+
+            <motion.a
+              href={profile.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, rotate: -5 }}
+              className="p-4 glass-card rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon className="h-8 w-8" />
+            </motion.a>
           </div>
         </motion.div>
       </div>
